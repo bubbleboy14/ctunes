@@ -3,6 +3,8 @@ CT.require("CT.all");
 CT.onload(function() {
 	CT.net.post("/_tunes", null, null, function(albums) {
 		CT.log(albums);
+		document.body.appendChild(CT.dom.link("Download Discography", null, "/mp3/mp3.zip",
+			"mosthigh abs ctr bigger bold bordered padded round nodecoration translucent whiteback hoverglow"));
 		new CT.slider.Slider({
 			mode: "chunk",
 			subMode: "track",
