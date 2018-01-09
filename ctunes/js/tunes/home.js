@@ -16,7 +16,7 @@ CT.onload(function() {
 					img: encodeURI("/img/" + album + ".jpg"),
 					label: album,
 					frames: albums[album].map(function(song) {
-						var sname = song.split(".")[0];
+						var sname = song.slice(0, song.lastIndexOf("."));
 						return {
 							label: sname,
 							song: sname,
