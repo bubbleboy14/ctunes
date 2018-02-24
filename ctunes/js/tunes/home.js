@@ -30,6 +30,7 @@ CT.onload(function() {
 							label: sname,
 							song: sname,
 							album: album,
+							deepLink: true,
 							src: encodeURI("/mp3/" + album + "/" + song)
 						};
 					})
