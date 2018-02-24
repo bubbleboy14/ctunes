@@ -5,7 +5,7 @@ CT.onload(function() {
 		CT.log(albums);
 		document.body.appendChild(CT.dom.link("Download Discography", null, "/mp3/mp3.zip",
 			"mosthigh abs ctr bigger bold bordered padded round nodecoration translucent whiteback hoverglow"));
-		var a, t, h = document.location.hash.slice(1);
+		var a, t, h = decodeURI(document.location.hash.slice(1));
 		if (h) {
 			if (h.indexOf("|") != -1)
 				[a, t] = h.split("|");
