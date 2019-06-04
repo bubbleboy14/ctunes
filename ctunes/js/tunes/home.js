@@ -1,4 +1,21 @@
 CT.require("CT.all");
+CT.require("core");
+
+var ccfg = core.config.CC, CCAPI;
+ccfg && CT.scriptImport(ccfg.gateway);
+
+var viewer = function(album, song) {
+	CT.log("played " + album + " - " + song);
+	if (ccfg) {
+		CCAPI = CCAPI || CC.viewer();
+		CCAPI.view({
+			content: {
+				membership: ccfg.membership,
+				identifier: album + " - " + song
+			}
+		});
+	}
+};
 
 CT.onload(function() {
 	CT.net.post("/_tunes", null, null, function(albums) {
@@ -30,6 +47,7 @@ CT.onload(function() {
 							label: sname,
 							song: sname,
 							album: album,
+							onplay: viewer,
 							deepLink: true,
 							src: encodeURI("/mp3/" + album + "/" + song)
 						};
