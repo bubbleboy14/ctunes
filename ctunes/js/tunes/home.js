@@ -29,7 +29,7 @@ CT.onload(function() {
 			else
 				a = h;
 		}
-		new CT.slider.Slider({
+		var slider = new CT.slider.Slider({
 			mode: "chunk",
 			startFrame: a,
 			subMode: "track",
@@ -55,5 +55,11 @@ CT.onload(function() {
 				};
 			})
 		});
+		var shuffler = CT.dom.link("shuffle", function() {
+			shuffler._on = !shuffler._on;
+			shuffler.innerHTML = shuffler._on ? "unshuffle" : "shuffle";
+			slider.setShuffle(shuffler._on);
+		}, null, "mosthigh abs cbr bigger bold bordered padded round nodecoration translucent whiteback hoverglow");
+		document.body.appendChild(shuffler);
 	});
 });
