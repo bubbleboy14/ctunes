@@ -6,7 +6,7 @@ ccfg && CT.scriptImport(ccfg.gateway);
 
 var viewer = function(album, song) {
 	CT.log("played " + album + " - " + song);
-	if (ccfg) {
+	if (ccfg && ccfg.membership) {
 		CCAPI = CCAPI || CC.viewer();
 		CCAPI.view({
 			content: {
